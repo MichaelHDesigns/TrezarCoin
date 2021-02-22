@@ -1762,9 +1762,40 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
     if (halvings >= 64)
         return 0;
 
-    CAmount nSubsidy = 8000000 * COIN;
-    if (nHeight > 10)
-        nSubsidy = 100 * COIN;
+    CAmount nSubsidy = 20000 * COIN;
+     if (nHeight == 1){
+      nSubsidy = 10000 * COIN;
+    } else if (nHeight == 2){
+      nSubsidy = 10000 * COIN;
+    } else if (nHeight == 3){
+      nSubsidy = 10000 * COIN;
+    } else if (nHeight == 4){
+      nSubsidy = 10000 * COIN;
+    } else if (nHeight == 5){
+      nSubsidy = 10000 * COIN;
+    } else if (nHeight > 5 && nHeight <= 50){
+      nSubsidy = 25 * COIN;
+    } else if (nHeight > 50 && nHeight <= 500){
+      nSubsidy = 25 * COIN;
+    } else if (nHeight > 500 && nHeight <= 10000){
+      nSubsidy = 25 * COIN;
+    } else if(nHeight > 10000 && nHeight <= 50000){
+      nSubsidy = 25 * COIN;
+    } else if(nHeight > 50000 && nHeight <= 300000){
+      nSubsidy = 25 * COIN;
+    } else if(nHeight > 300000 && nHeight <= 600000){
+      nSubsidy = 25 * COIN;
+    } else if(nHeight > 600000 && nHeight <= 1000000){
+      nSubsidy = 25 * COIN;
+    } else if(nHeight > 1000000 && nHeight <= 3000000){
+      nSubsidy = 25 * COIN;
+    } else if(nHeight > 3000000 && nHeight <= 6000000){
+      nSubsidy = 25 * COIN;
+    } else if(nHeight > 60000000 && nHeight <= 20000000){
+      nSubsidy = 25 * COIN;
+    } else {
+      nSubsidy = 5 * COIN;
+    }
     // Subsidy is cut in half every 210,000 blocks which will occur approximately every 4 years.
     nSubsidy >>= halvings;
     return nSubsidy;
@@ -1778,7 +1809,7 @@ CAmount GetProofOfStakeReward(int nHeight, const Consensus::Params& consensusPar
     if (halvings >= 64)
         return 0;
 
-    CAmount nSubsidy = 100 * COIN;
+    CAmount nSubsidy = 5 * COIN;
     nSubsidy >>= halvings;
     return nSubsidy;
 }
